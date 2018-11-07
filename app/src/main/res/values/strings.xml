@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TempleBrowser</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="addButton">button adds page</string>
+    <string name="backSymbol"><![CDATA[<]]></string>
+    <string name="forwardSymbol"><![CDATA[>]]></string>
+    <string name="browserBackSymbol"><![CDATA[<<]]></string>
+    <string name="browserForward"><![CDATA[>>]]></string>
+    <string name="goButtonLabel">GO</string>
+    <string name="URL">URL</string>
+</resources>
