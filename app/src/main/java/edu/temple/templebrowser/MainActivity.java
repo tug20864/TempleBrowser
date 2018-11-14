@@ -168,7 +168,35 @@ public class MainActivity extends AppCompatActivity implements ActivityCommunica
             }
         });
 
-    }
+        //attempt intent
+        try {
+            String url = getIntent().getData().toString();
+            if(  !(url.isEmpty())  ){
+                //create new tab and load the webpage
+                //CREATE NEW TAB
+                //generate bundle for new fragment and add to adapter
+                Bundle b = new Bundle();
+                b.putString("url", url);
+                String title = Integer.toString( mSectionsPagerAdapter.getCount() + 1 );
+                int tabIndex = mSectionsPagerAdapter.getCount();
+                //add fragment / page
+                PlaceholderFragment frag = PlaceholderFragment.newInstance(mSectionsPagerAdapter.getCount());
+                mSectionsPagerAdapter.addFrag( frag, title, b);
+
+                //MOVE TO THE NEW TAB
+                mViewPager.setCurrentItem(tabIndex);
+
+                //SET URL IN TEXTBOX
+                EditText urlText = (EditText)findViewById(R.id.urlEditTextBox);
+                urlText.setText(url);
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//end on create
 
 
     /**
@@ -233,7 +261,6 @@ public class MainActivity extends AppCompatActivity implements ActivityCommunica
         //find the text view
         TextView text = findViewById(R.id.urlEditTextBox);
         //assign the url to the text view
-        text.setText(someValue
-        );
+        text.setText(someValue);
     }
 }

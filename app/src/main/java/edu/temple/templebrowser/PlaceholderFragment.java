@@ -100,10 +100,26 @@ public class PlaceholderFragment extends Fragment implements FragmentCommunitcat
     }
 
     @Override
+    //Check to see if intent has url
     public void onResume(){
         super.onResume();
-
-
+        //attempt to load url if passed
+        Bundle bundle = getArguments();
+        try{
+            String url2 = bundle.getString("url");
+            //be sure that the bundle url is not empty
+            //also be sure that the bundle url is not equal to the fragments current url
+            // if all is true begin to load page
+            if(  !(url2.isEmpty()) && !(url2.equalsIgnoreCase(url)) ){
+                url = bundle.getString("url");
+                TextView textView = rootView.findViewById(R.id.webFragTextView);
+                textView.setText(url);
+                webView.loadUrl(url);
+                webView.setWebViewClient(new WebViewClient());
+            }
+        }catch(Exception e){
+            //do nothing
+        }
     }
     public String getUrl(){
         return url;
